@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Button = ({
   type = "button",
-  variant = "primary", //primary, secondary, delete
+  variant = "primary", //primary, secondary
   disabled = false,
   isLink = false,
   to,
