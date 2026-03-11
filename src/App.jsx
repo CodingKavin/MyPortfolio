@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 import AboutPage from "./pages/AboutPage/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage/ContactPage.jsx";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx";
+import Button from "./components/Button/Button.jsx";
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );
