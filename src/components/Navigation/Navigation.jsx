@@ -14,7 +14,11 @@ const Navigation = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar__left"></div>
+      <div className="navbar__left">
+        <Typography variant="h1" className="navbar__left-name">
+          Kavin Paul
+        </Typography>
+      </div>
 
       <div className="navbar__right--mobile">
         <button

@@ -17,6 +17,10 @@
     padding: pxToRem(16) pxToRem(16);
   }
 
+  &__left-name {
+    color: $color-text-primary;
+  }
+
   &__right {
     &--mobile {
       @include tablet {
