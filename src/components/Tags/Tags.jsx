@@ -1,16 +1,13 @@
+import Typography from "../Typography/Typography.jsx";
 import "./Tags.scss";
-import { Link } from "react-router-dom";
 
-const Tags = ({ status = "In Stock", className = "", ...props }) => {
-  const isInstock = status?.toLowerCase() === "in stock";
-  const variant = isInstock ? "in-stock" : "out-of-stock";
-
-  let combinedClassName = `tag tag--${variant}`;
+const Tags = ({ text = "", className = "", ...props }) => {
+  let combinedClassName = `tag tag--skill`;
   if (className) combinedClassName += ` ${className}`;
 
   return (
     <div className={combinedClassName} {...props}>
-      {status.toUpperCase()}
+      <Typography variant="p2">{text}</Typography>
     </div>
   );
 };
