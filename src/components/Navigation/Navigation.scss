@@ -1,0 +1,209 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: pxToRem(8) pxToRem(16);
+  padding: pxToRem(8) pxToRem(8);
+  border-bottom: 1px solid $color-text-secondary;
+
+  @include tablet {
+    position: static;
+    margin: pxToRem(16) pxToRem(32);
+    padding: pxToRem(16) pxToRem(16);
+  }
+
+  &__right {
+    &--mobile {
+      display: flex;
+      align-items: center;
+      gap: pxToRem(16);
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+      @include tablet {
+        display: flex;
+        gap: pxToRem(32);
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+
+    &-line {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background-color: $color-text-primary;
+      transition: 0.3s ease;
+    }
+
+    &--open {
+      .navbar__hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .navbar__hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .navbar__hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: $color-background-light;
+    padding: 0 pxToRem(16);
+    z-index: 999;
+
+    &--open {
+      display: flex;
+    }
+  }
+
+  &__tab {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    cursor: pointer;
+    &--active {
+      font-weight: 900;
+      @include tablet {
+        font-weight: 400;
+        border-top: 1px solid $color-text-secondary;
+      }
+    }
+  }
+
+  &__logo-link {
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__left-name {
+    color: $color-text-secondary;
+    letter-spacing: pxToRem(-1);
+    display: flex;
+    align-items: center;
+  }
+
+  &__prompt {
+    color: $color-text-secondary;
+    margin-right: pxToRem(4);
+    font-weight: 400;
+  }
+
+  &__cursor {
+    color: $color-text-secondary;
+    margin-left: pxToRem(2);
+    animation: blink 1s step-end infinite;
+  }
+
+  &__typing-container {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: bottom;
+  }
+
+  &__typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    font-family: monospace;
+
+    animation: typing 1.5s steps(10) forwards;
+    animation-delay: 0.5s;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(8);
+    cursor: pointer;
+    user-select: none;
+
+    &-pill {
+      position: relative;
+      width: pxToRem(44);
+      height: pxToRem(22);
+      background-color: $color-background-light;
+      border: 1px solid $color-text-secondary;
+      border-radius: pxToRem(20);
+      transition: background-color 0.3s ease;
+    }
+
+    &-circle {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: pxToRem(16);
+      height: pxToRem(16);
+      background-color: $color-button-primary;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(0);
+    }
+
+    &-icon {
+      font-size: pxToRem(14);
+      filter: grayscale(1);
+      transition: filter 0.3s ease;
+    }
+
+    &--light {
+      .navbar__toggle-circle {
+        transform: translateX(pxToRem(22));
+      }
+      .navbar__toggle-icon:last-child {
+        filter: grayscale(0);
+      }
+    }
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 10ch;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
