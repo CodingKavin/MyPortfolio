@@ -6,7 +6,7 @@ $max-width-lg: 1440px;
 $color-button-primary: #7f5af0;
 $color-primary-dark: #010101;
 $color-secondary-light: #72757e;
-$color-tertiary-medium: #2cb67d;
+$color-tertiary-medium: #00eb9a;
 
 :root {
   --bg-dark: #16161a;
@@ -26,3 +26,6 @@ $color-background-dark: var(--bg-dark);
 $color-background-light: var(--bg-light);
 $color-text-primary: var(--text-primary);
 $color-text-secondary: var(--text-secondary);
+
+$color-background-dark-default: #16161a;
+$color-text-primary-default: #fffffe;
