@@ -1,27 +1,29 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AboutPage from "./pages/AboutPage/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage/ContactPage.jsx";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx";
-import Button from "./components/Button/Button.jsx";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navigation />
-        <main>
-          <Routes>
-            <Route path="/" element={<AboutPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        {/* <Footer /> */}
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Navigation />
+          <main>
+            <Routes>
+              <Route path="/" element={<AboutPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+          {/* <Footer /> */}
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }
