@@ -15,9 +15,15 @@ const Navigation = () => {
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <Typography variant="h1" className="navbar__left-name">
-          Kavin Paul
-        </Typography>
+        <NavLink to="/" className="navbar__logo-link">
+          <Typography variant="h1" className="navbar__left-name">
+            <span className="navbar__prompt">~/</span>
+            <span className="navbar__typing-container">
+              <span className="navbar__typing-text">kavin-paul</span>
+              <span className="navbar__cursor">_</span>
+            </span>
+          </Typography>
+        </NavLink>
       </div>
 
       <div className="navbar__right--mobile">

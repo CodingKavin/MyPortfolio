@@ -17,10 +17,6 @@
     padding: pxToRem(16) pxToRem(16);
   }
 
-  &__left-name {
-    color: $color-text-primary;
-  }
-
   &__right {
     &--mobile {
       @include tablet {
@@ -97,5 +93,69 @@
         border-top: 1px solid $color-text-secondary;
       }
     }
+  }
+
+  &__logo-link {
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__left-name {
+    color: $color-text-secondary;
+    letter-spacing: pxToRem(-1);
+    display: flex;
+    align-items: center;
+  }
+
+  &__prompt {
+    color: $color-text-secondary;
+    margin-right: pxToRem(4);
+    font-weight: 400;
+  }
+
+  &__cursor {
+    color: $color-text-secondary;
+    margin-left: pxToRem(2);
+    animation: blink 1s step-end infinite;
+  }
+
+  &__typing-container {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: bottom;
+  }
+
+  &__typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    font-family: monospace;
+
+    animation: typing 1.5s steps(10) forwards;
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 10ch;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
