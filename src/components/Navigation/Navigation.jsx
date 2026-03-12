@@ -1,16 +1,31 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import Typography from "../Typography/Typography.jsx";
 import "./Navigation.scss";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
   const getNavClass = ({ isActive }) =>
     isActive ? "navbar__tab navbar__tab--active" : "navbar__tab";
+
+  const ThemeToggle = () => (
+    <div
+      className={`navbar__toggle ${isDarkMode ? "" : "navbar__toggle--light"}`}
+      onClick={toggleTheme}
+    >
+      <span className="navbar__toggle-icon">🌙</span>
+      <div className="navbar__toggle-pill">
+        <div className="navbar__toggle-circle"></div>
+      </div>
+      <span className="navbar__toggle-icon">☀️</span>
+    </div>
+  );
 
   return (
     <nav className="navbar">
@@ -27,6 +42,7 @@ const Navigation = () => {
       </div>
 
       <div className="navbar__right--mobile">
+        <ThemeToggle />
         <button
           className={`navbar__hamburger ${isOpen ? "navbar__hamburger--open" : ""}`}
           onClick={toggleMenu}
@@ -69,6 +85,8 @@ const Navigation = () => {
             Contact
           </Typography>
         </NavLink>
+
+        <ThemeToggle />
       </div>
     </nav>
   );
