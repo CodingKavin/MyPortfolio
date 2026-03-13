@@ -7,19 +7,25 @@ $color-button-primary: #7f5af0;
 $color-primary-dark: #010101;
 $color-secondary-light: #72757e;
 $color-tertiary-medium: #00eb9a;
+$color-link: var(--link-color);
+$color-link-hover: var(--link-hover);
 
 :root {
   --bg-dark: #16161a;
   --bg-light: #242629;
   --text-primary: #fffffe;
-  --text-secondary: #94a1b2;
+  --text-secondary: #b2bcc9;
+  --link-color: #7582ff;
+  --link-hover: #a2adff;
 }
 
 [data-theme="light"] {
   --bg-dark: #fffffe;
-  --bg-light: #94a1b2;
+  --bg-light: #b2bcc9;
   --text-primary: #16161a;
   --text-secondary: #242629;
+  --link-color: #4f46e5;
+  --link-hover: #3730a3;
 }
 
 $color-background-dark: var(--bg-dark);
