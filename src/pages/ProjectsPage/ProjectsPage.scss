@@ -24,7 +24,11 @@
     gap: pxToRem(32);
     margin: pxToRem(8) pxToRem(16);
     max-width: pxToRem(1000);
-    width: 100%;
+    width: 80%;
+
+    @include tablet {
+      width: 100%;
+    }
   }
 }
 
