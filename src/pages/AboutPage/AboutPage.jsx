@@ -78,11 +78,12 @@ const AboutPage = () => {
                 </Button>
                 <a
                   href={MyResume}
-                  download="Kavin_Resume_dev.pdf"
+                  target="_blank"
+                  rel="noreferrer"
                   className="about-me__download-link"
                 >
                   <Button variant="secondary" className="about-me__btn">
-                    <Typography variant="p2">Download Resume</Typography>
+                    <Typography variant="p2">View Resume</Typography>
                   </Button>
                 </a>
               </div>

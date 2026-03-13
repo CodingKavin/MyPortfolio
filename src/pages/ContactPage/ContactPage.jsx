@@ -1,25 +1,43 @@
 import Typography from "../../components/Typography/Typography";
 import Button from "../../components/Button/Button";
 import MyResume from "../../assets/documents/Resume - Kavin Paul.pdf";
+import Icon from "../../components/Iconography/Iconography.jsx";
+import { useState } from "react";
 import "./ContactPage.scss";
 
 const ContactPage = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const contactLinks = [
     {
       label: "Email:",
       value: "kavinp622@gmail.com",
       url: "mailto:kavinp622@gmail.com",
+      isExternal: false,
     },
-    { label: "Phone:", value: "+1 (403) 618-3509", url: "tel:+14036183509" },
+    {
+      label: "Phone:",
+      value: "+1 (403) 618-3509",
+      url: "tel:+14036183509",
+      isExternal: false,
+    },
     {
       label: "LinkedIn:",
       value: "https://www.linkedin.com/in/kavin-paul-dev/",
       url: "https://www.linkedin.com/in/kavin-paul-dev/",
+      isExternal: true,
     },
     {
       label: "GitHub:",
       value: "https://github.com/CodingKavin",
       url: "https://github.com/CodingKavin",
+      isExternal: true,
     },
   ];
 
@@ -36,16 +54,27 @@ const ContactPage = () => {
               <Typography variant="h2" className="contact__label">
                 {link.label}
               </Typography>
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-                className="contact__link"
-              >
-                <Typography variant="p1" className="contact__value">
-                  {link.value}
-                </Typography>
-              </a>
+              <div className="contact__item-link-wrapper">
+                <a
+                  href={link.url}
+                  target={link.isExternal ? "_blank" : "_self"}
+                  rel={link.isExternal ? "noreferrer" : ""}
+                  className="contact__link"
+                >
+                  <Typography variant="p1" className="contact__value">
+                    {link.value}
+                  </Typography>
+                </a>
+                {link.label === "Email:" && (
+                  <button
+                    className={`contact__copy-btn ${copied ? "contact__copy-btn--success" : ""}`}
+                    onClick={() => handleCopy(link.value)}
+                    title="Copy to clipboard"
+                  >
+                    <Icon name={copied ? "check" : "copy"} />
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>

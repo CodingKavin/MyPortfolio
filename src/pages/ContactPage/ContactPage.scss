@@ -51,6 +51,12 @@
     }
   }
 
+  &__item-link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(8);
+  }
+
   &__label {
     color: $color-text-primary;
     text-transform: uppercase;
@@ -84,6 +90,39 @@
   &__btn {
     .typography--p2 {
       margin: 0;
+    }
+  }
+
+  &__item-content {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(12);
+  }
+
+  &__copy-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: pxToRem(18);
+
+    @include tablet {
+      margin-bottom: 0;
+      margin-top: pxToRem(4);
+    }
+
+    .icon {
+      width: pxToRem(20);
+      height: pxToRem(20);
+      transition: transform 0.2s ease;
+    }
+
+    &:hover .icon--copy {
+      transform: scale(1.1);
     }
   }
 }
