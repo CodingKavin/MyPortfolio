@@ -59,6 +59,14 @@
     margin-bottom: pxToRem(4);
   }
 
+  &__value {
+    margin-top: 0;
+
+    @include tablet {
+      margin-top: pxToRem(22);
+    }
+  }
+
   &__link {
     text-decoration: none;
     color: $color-link;

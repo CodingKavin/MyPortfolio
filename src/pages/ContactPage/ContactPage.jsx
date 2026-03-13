@@ -42,7 +42,9 @@ const ContactPage = () => {
                 rel="noreferrer"
                 className="contact__link"
               >
-                <Typography variant="p1">{link.value}</Typography>
+                <Typography variant="p1" className="contact__value">
+                  {link.value}
+                </Typography>
               </a>
             </div>
           ))}
