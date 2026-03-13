@@ -3,30 +3,27 @@
 @use "../../styles/mixins" as *;
 
 .icon {
-    display: inline-block;
-    vertical-align: middle;
-    width: pxToRem(24);
-    height: pxToRem(24);
+  display: inline-block;
+  vertical-align: middle;
+  width: pxToRem(20);
+  height: pxToRem(20);
+  color: $color-text-secondary;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 
-    &--default {
-        fill: $color-secondary-slate;
-    }
+  &--active {
+    color: $color-link;
+  }
 
-    &--active {
-        path {
-            fill: $color-primary-indigo;
-        }
-    }
+  &--check {
+    color: $color-tertiary-medium;
+  }
 
-    &--delete {
-        path {
-            fill: $color-supporting-red;
-        }
+  &--copy {
+    &:hover {
+      color: $color-link;
+      transform: scale(1.1);
     }
-
-    &--error {
-        path {
-            fill: $color-supporting-red;
-        }
-    }
+  }
 }

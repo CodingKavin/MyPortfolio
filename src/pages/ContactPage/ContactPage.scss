@@ -1,0 +1,128 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet {
+    margin: pxToRem(16) pxToRem(32);
+    padding: pxToRem(16) pxToRem(16);
+  }
+
+  &__header {
+    color: $color-text-primary;
+    text-align: center;
+  }
+
+  &__container {
+    background-color: $color-background-light;
+    border-radius: pxToRem(32);
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(32);
+    margin: pxToRem(8) pxToRem(16);
+    padding: pxToRem(40);
+    max-width: pxToRem(700);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: pxToRem(12);
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  &__item-link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(8);
+  }
+
+  &__label {
+    color: $color-text-primary;
+    text-transform: uppercase;
+    font-size: pxToRem(14);
+    letter-spacing: 1px;
+    margin-bottom: pxToRem(4);
+  }
+
+  &__value {
+    margin-top: 0;
+
+    @include tablet {
+      margin-top: pxToRem(22);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-link;
+    &:hover {
+      color: $color-link-hover;
+      opacity: 0.8;
+    }
+  }
+
+  &__download-link {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  &__btn {
+    .typography--p2 {
+      margin: 0;
+    }
+  }
+
+  &__item-content {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(12);
+  }
+
+  &__copy-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: pxToRem(18);
+
+    @include tablet {
+      margin-bottom: 0;
+      margin-top: pxToRem(4);
+    }
+
+    .icon {
+      width: pxToRem(20);
+      height: pxToRem(20);
+      transition: transform 0.2s ease;
+    }
+
+    &:hover .icon--copy {
+      transform: scale(1.1);
+    }
+  }
+}

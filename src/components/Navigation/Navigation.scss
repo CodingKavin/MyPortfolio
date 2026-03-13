@@ -136,8 +136,7 @@
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    width: 0;
-    font-family: monospace;
+    max-width: 0;
 
     animation: typing 1.5s steps(10) forwards;
     animation-delay: 0.5s;
@@ -191,10 +190,10 @@
 
 @keyframes typing {
   from {
-    width: 0;
+    max-width: 0;
   }
   to {
-    width: 10ch;
+    max-width: 100%;
   }
 }
 
