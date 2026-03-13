@@ -1,0 +1,101 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    margin: pxToRem(16) pxToRem(32);
+    padding: pxToRem(16) pxToRem(16);
+  }
+
+  &__header {
+    color: $color-text-primary;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(32);
+    margin: pxToRem(8) pxToRem(16);
+    max-width: pxToRem(1000);
+    width: 100%;
+  }
+}
+
+.project-card {
+  background-color: $color-background-light;
+  border-radius: pxToRem(32);
+  display: flex;
+  flex-direction: column;
+  padding: pxToRem(24);
+  gap: pxToRem(24);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__image-container {
+    flex: 1;
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: pxToRem(16);
+    object-fit: cover;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16);
+  }
+
+  &__title {
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__description {
+    color: $color-text-secondary;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: pxToRem(8);
+  }
+
+  &__btn-container {
+    display: flex;
+    gap: pxToRem(16);
+    margin-top: pxToRem(8);
+  }
+
+  &__external-link {
+    text-decoration: none;
+  }
+
+  &__btn {
+    .typography--p2 {
+      margin: 0;
+    }
+  }
+}
