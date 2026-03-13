@@ -22,6 +22,7 @@
     margin: pxToRem(8) pxToRem(16);
     padding: pxToRem(24) pxToRem(24);
     max-width: pxToRem(1000);
+    width: 80%;
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -35,6 +36,7 @@
       flex-direction: row;
       gap: pxToRem(32);
       align-items: center;
+      width: 100%;
     }
   }
 
@@ -106,6 +108,7 @@
     margin: pxToRem(8) pxToRem(16);
     padding: pxToRem(24) pxToRem(24);
     max-width: pxToRem(1000);
+    width: 80%;
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -113,6 +116,10 @@
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    @include tablet {
+      width: 100%;
     }
   }
 
