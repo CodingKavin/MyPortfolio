@@ -58,7 +58,7 @@ const AboutPage = () => {
                 the banking industry, transitioning from financial advising to
                 Robotic Process Automation, I have built my career on precision
                 and problem-solving. I am a fast learner with an innate
-                curiosity for how things work under the hood, whether it is
+                curiosity for how things work under the hood, whether it's
                 complex sci-fi lore or a JWT validation flow. I specialize in
                 building clean, functional applications like my recent
                 full-stack budget tracker, and I am currently diving into the
