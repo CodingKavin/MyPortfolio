@@ -57,7 +57,7 @@ const AboutPage = () => {
                 high-level logic and low-level implementation. With 8 years in
                 the banking industry, transitioning from financial advising to
                 Robotic Process Automation, I have built my career on precision
-                and problem-solving. I am a fast learner with a nerdy obsession
+                and problem-solving. I am a fast learner with a innate curiosity
                 for how things work under the hood, whether it is complex sci-fi
                 lore or a JWT validation flow. I specialize in building clean,
                 functional applications like my recent full-stack budget
