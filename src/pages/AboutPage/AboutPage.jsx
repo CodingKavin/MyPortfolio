@@ -57,15 +57,16 @@ const AboutPage = () => {
                 high-level logic and low-level implementation. With 8 years in
                 the banking industry, transitioning from financial advising to
                 Robotic Process Automation, I have built my career on precision
-                and problem-solving. I am a fast learner with a nerdy obsession
-                for how things work under the hood, whether it is complex sci-fi
-                lore or a JWT validation flow. I specialize in building clean,
-                functional applications like my recent full-stack budget
-                tracker, and I am currently diving into the Java, Spring Boot,
-                and AWS ecosystem. When I'm not at my terminal, I'm usually
-                gaming, watching anime, or heading to the mountains for some
-                snowboarding and hiking. I am a direct communicator who values
-                efficiency, clear documentation, and getting the job done right.
+                and problem-solving. I am a fast learner with an innate
+                curiosity for how things work under the hood, whether it is
+                complex sci-fi lore or a JWT validation flow. I specialize in
+                building clean, functional applications like my recent
+                full-stack budget tracker, and I am currently diving into the
+                Java, Spring Boot, and AWS ecosystem. When I'm not at my
+                terminal, I'm usually gaming, watching anime, or heading to the
+                mountains for some snowboarding and hiking. I am a direct
+                communicator who values efficiency, clear documentation, and
+                getting the job done right.
               </Typography>
               <div className="about-me__btn-container">
                 <Button
