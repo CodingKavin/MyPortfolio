@@ -26,4 +26,18 @@
       transform: scale(1.1);
     }
   }
+
+  &--linkedin,
+  &--github {
+    cursor: pointer;
+
+    &:hover {
+      color: $color-text-primary;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--linkedin:hover {
+    color: #0077b5;
+  }
 }

@@ -3,4 +3,44 @@
 @use "../../styles/mixins" as *;
 
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: pxToRem(16);
+  margin: pxToRem(16) pxToRem(16);
+  padding: pxToRem(24) pxToRem(8);
+  border-top: 1px solid $color-text-secondary;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: pxToRem(16) pxToRem(32);
+    padding: pxToRem(24) pxToRem(16);
+  }
+
+  &__copy {
+    color: $color-text-secondary;
+  }
+
+  &__socials {
+    display: flex;
+    gap: pxToRem(20);
+    align-items: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+
+    .icon {
+      width: pxToRem(24);
+      height: pxToRem(24);
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
 }
