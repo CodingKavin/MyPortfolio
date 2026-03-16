@@ -24,6 +24,7 @@ const AboutPage = () => {
         "Selenium",
         "Robot Framework",
         "Cypress",
+        "Python (pandas/NumPy)",
         "Postman",
         "API Testing",
         "RPA",
