@@ -73,10 +73,10 @@ const AboutPage = () => {
                 <Button
                   variant="primary"
                   isLink={true}
-                  to="/projects"
+                  to="#projects"
                   className="about-me__btn"
                 >
-                  <Typography variant="p2">View Projects</Typography>
+                  <Typography variant="p2">Projects</Typography>
                 </Button>
                 <a
                   href={MyResume}
@@ -85,7 +85,7 @@ const AboutPage = () => {
                   className="about-me__download-link"
                 >
                   <Button variant="secondary" className="about-me__btn">
-                    <Typography variant="p2">View Resume</Typography>
+                    <Typography variant="p2">Resume</Typography>
                   </Button>
                 </a>
               </div>

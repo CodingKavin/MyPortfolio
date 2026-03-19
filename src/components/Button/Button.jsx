@@ -15,7 +15,7 @@ const Button = ({
 
   if (isLink) {
     return (
-      <a href="" to={to} className={combinedClassName} {...props}>
+      <a href={to} className={combinedClassName} {...props}>
         {children}
       </a>
     );
