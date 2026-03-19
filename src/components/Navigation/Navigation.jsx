@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import Typography from "../Typography/Typography.jsx";
+import Icon from "../Iconography/Iconography";
 import "./Navigation.scss";
 
 const Navigation = () => {
@@ -14,15 +15,12 @@ const Navigation = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      // Adjusted margin: This creates a narrow horizontal "strip" in the
-      // upper-middle of the screen that triggers the active state.
       rootMargin: "-30% 0px -60% 0px",
       threshold: 0,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
-        // Only update if the section is coming into that 30-60% sweet spot
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
@@ -45,6 +43,27 @@ const Navigation = () => {
 
   const getNavClass = (id) =>
     `navbar__tab ${activeSection === id ? "navbar__tab--active" : ""}`;
+
+  const SocialLinks = () => (
+    <div className="navbar__socials">
+      <a
+        href="https://github.com/CodingKavin"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="navbar__social-link"
+      >
+        <Icon name="github" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/kavin-paul-dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="navbar__social-link"
+      >
+        <Icon name="linkedin" />
+      </a>
+    </div>
+  );
 
   const ThemeToggle = () => (
     <div
@@ -112,6 +131,10 @@ const Navigation = () => {
           >
             <Typography variant="p1">Contact</Typography>
           </a>
+
+          <div className="navbar__mobile-socials">
+            <SocialLinks />
+          </div>
         </div>
       </div>
 
@@ -121,25 +144,22 @@ const Navigation = () => {
             About
           </Typography>
         </a>
-
         <a href="#skills" className={getNavClass("skills")}>
           <Typography variant="p1" className="navbar__tab-text">
             Skills
           </Typography>
         </a>
-
         <a href="#projects" className={getNavClass("projects")}>
           <Typography variant="p1" className="navbar__tab-text">
             Projects
           </Typography>
         </a>
-
         <a href="#contact" className={getNavClass("contact")}>
           <Typography variant="p1" className="navbar__tab-text">
             Contact
           </Typography>
         </a>
-
+        <SocialLinks />
         <ThemeToggle />
       </div>
     </nav>

@@ -7,12 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding-top: pxToRem(80);
 
   @include tablet {
     margin: pxToRem(16) pxToRem(32);
-    padding: pxToRem(80) pxToRem(16) pxToRem(16);
+    padding: 0 pxToRem(16) pxToRem(16);
   }
 
   &__header {
@@ -30,7 +28,7 @@
     margin: pxToRem(8) pxToRem(16);
     padding: pxToRem(24) pxToRem(24);
     max-width: pxToRem(1000);
-    width: 90%;
+    width: 80%;
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
