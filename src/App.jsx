@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import AboutPage from "./pages/AboutPage/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage/ContactPage.jsx";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx";
+import SkillsPage from "./pages/SkillsPage/SkillsPage.jsx";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <main>
           <section id="about">
             <AboutPage />
+          </section>
+          <section id="skills">
+            <SkillsPage />
           </section>
           <section id="projects">
             <ProjectsPage />

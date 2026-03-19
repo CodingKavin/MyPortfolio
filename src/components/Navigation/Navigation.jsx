@@ -14,12 +14,15 @@ const Navigation = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px",
+      // Adjusted margin: This creates a narrow horizontal "strip" in the
+      // upper-middle of the screen that triggers the active state.
+      rootMargin: "-30% 0px -60% 0px",
       threshold: 0,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
+        // Only update if the section is coming into that 30-60% sweet spot
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
@@ -31,7 +34,6 @@ const Navigation = () => {
       observerOptions,
     );
 
-    // Added "skills" to the tracked sections
     const sections = ["about", "skills", "projects", "contact"];
     sections.forEach((id) => {
       const element = document.getElementById(id);
@@ -89,7 +91,6 @@ const Navigation = () => {
           <a href="#about" className={getNavClass("about")} onClick={closeMenu}>
             <Typography variant="p1">About</Typography>
           </a>
-          {/* Mobile Skills Link */}
           <a
             href="#skills"
             className={getNavClass("skills")}
@@ -121,7 +122,6 @@ const Navigation = () => {
           </Typography>
         </a>
 
-        {/* Desktop Skills Link */}
         <a href="#skills" className={getNavClass("skills")}>
           <Typography variant="p1" className="navbar__tab-text">
             Skills
