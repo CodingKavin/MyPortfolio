@@ -11,18 +11,19 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <BrowserRouter>
-          <Navigation />
-          <main>
-            <Routes>
-              <Route path="/" element={<AboutPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-          <Footer />
-        </BrowserRouter>
+        <Navigation />
+        <main>
+          <section id="about">
+            <AboutPage />
+          </section>
+          <section id="projects">
+            <ProjectsPage />
+          </section>
+          <section id="contact">
+            <ContactPage />
+          </section>
+        </main>
+        <Footer />
       </ThemeProvider>
     </>
   );
