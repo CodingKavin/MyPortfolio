@@ -39,7 +39,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <section className="about-me">
+      <section id="about" className="about-me">
         <Typography variant="h1" className="about-me__header">
           About Me
         </Typography>
@@ -93,7 +93,8 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <section className="skills">
+
+      <section id="skills" className="skills">
         <Typography variant="h1" className="about-me__header">
           Skills
         </Typography>

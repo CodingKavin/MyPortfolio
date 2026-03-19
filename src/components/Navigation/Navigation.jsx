@@ -5,17 +5,16 @@ import "./Navigation.scss";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about"); // Track which section is visible
+  const [activeSection, setActiveSection] = useState("about");
   const { isDarkMode, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  // ScrollSpy Logic: Updates activeSection when sections enter the viewport
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px", // Triggers when section is in the top-ish part of the screen
+      rootMargin: "-20% 0px -70% 0px",
       threshold: 0,
     };
 
@@ -32,7 +31,8 @@ const Navigation = () => {
       observerOptions,
     );
 
-    const sections = ["about", "projects", "contact"];
+    // Added "skills" to the tracked sections
+    const sections = ["about", "skills", "projects", "contact"];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -41,7 +41,6 @@ const Navigation = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Helper to apply your existing active styling
   const getNavClass = (id) =>
     `navbar__tab ${activeSection === id ? "navbar__tab--active" : ""}`;
 
@@ -90,6 +89,14 @@ const Navigation = () => {
           <a href="#about" className={getNavClass("about")} onClick={closeMenu}>
             <Typography variant="p1">About</Typography>
           </a>
+          {/* Mobile Skills Link */}
+          <a
+            href="#skills"
+            className={getNavClass("skills")}
+            onClick={closeMenu}
+          >
+            <Typography variant="p1">Skills</Typography>
+          </a>
           <a
             href="#projects"
             className={getNavClass("projects")}
@@ -111,6 +118,13 @@ const Navigation = () => {
         <a href="#about" className={getNavClass("about")}>
           <Typography variant="p1" className="navbar__tab-text">
             About
+          </Typography>
+        </a>
+
+        {/* Desktop Skills Link */}
+        <a href="#skills" className={getNavClass("skills")}>
+          <Typography variant="p1" className="navbar__tab-text">
+            Skills
           </Typography>
         </a>
 
