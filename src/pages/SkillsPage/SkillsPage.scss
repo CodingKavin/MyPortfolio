@@ -10,7 +10,7 @@
 
   @include tablet {
     margin: pxToRem(16) pxToRem(32);
-    padding: 0 pxToRem(16) pxToRem(16);
+    padding: pxToRem(16) pxToRem(16) pxToRem(16);
   }
 
   &__header {
