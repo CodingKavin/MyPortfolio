@@ -1,8 +1,5 @@
 import "./Button.scss";
 
-import "./Button.scss";
-import { Link } from "react-router-dom";
-
 const Button = ({
   type = "button",
   variant = "primary", //primary, secondary
@@ -18,9 +15,9 @@ const Button = ({
 
   if (isLink) {
     return (
-      <Link to={to} className={combinedClassName} {...props}>
+      <a href={to} className={combinedClassName} {...props}>
         {children}
-      </Link>
+      </a>
     );
   }
 

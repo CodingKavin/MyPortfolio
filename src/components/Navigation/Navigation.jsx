@@ -1,18 +1,50 @@
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import Typography from "../Typography/Typography.jsx";
 import "./Navigation.scss";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
   const { isDarkMode, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  const getNavClass = ({ isActive }) =>
-    isActive ? "navbar__tab navbar__tab--active" : "navbar__tab";
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      // Adjusted margin: This creates a narrow horizontal "strip" in the
+      // upper-middle of the screen that triggers the active state.
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        // Only update if the section is coming into that 30-60% sweet spot
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+
+    const sections = ["about", "skills", "projects", "contact"];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const getNavClass = (id) =>
+    `navbar__tab ${activeSection === id ? "navbar__tab--active" : ""}`;
 
   const ThemeToggle = () => (
     <div
@@ -30,7 +62,7 @@ const Navigation = () => {
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <NavLink to="/" className="navbar__logo-link">
+        <a href="#about" className="navbar__logo-link">
           <Typography variant="h1" className="navbar__left-name">
             <span className="navbar__prompt">~/</span>
             <span className="navbar__typing-container">
@@ -38,7 +70,7 @@ const Navigation = () => {
               <span className="navbar__cursor">_</span>
             </span>
           </Typography>
-        </NavLink>
+        </a>
       </div>
 
       <div className="navbar__right--mobile">
@@ -56,35 +88,57 @@ const Navigation = () => {
         <div
           className={`navbar__mobile-menu ${isOpen ? "navbar__mobile-menu--open" : ""}`}
         >
-          <NavLink to="/" className={getNavClass} onClick={closeMenu}>
+          <a href="#about" className={getNavClass("about")} onClick={closeMenu}>
             <Typography variant="p1">About</Typography>
-          </NavLink>
-          <NavLink to="/projects" className={getNavClass} onClick={closeMenu}>
+          </a>
+          <a
+            href="#skills"
+            className={getNavClass("skills")}
+            onClick={closeMenu}
+          >
+            <Typography variant="p1">Skills</Typography>
+          </a>
+          <a
+            href="#projects"
+            className={getNavClass("projects")}
+            onClick={closeMenu}
+          >
             <Typography variant="p1">Projects</Typography>
-          </NavLink>
-          <NavLink to="/contact" className={getNavClass} onClick={closeMenu}>
+          </a>
+          <a
+            href="#contact"
+            className={getNavClass("contact")}
+            onClick={closeMenu}
+          >
             <Typography variant="p1">Contact</Typography>
-          </NavLink>
+          </a>
         </div>
       </div>
+
       <div className="navbar__right--tablet">
-        <NavLink to="/" className={getNavClass}>
+        <a href="#about" className={getNavClass("about")}>
           <Typography variant="p1" className="navbar__tab-text">
             About
           </Typography>
-        </NavLink>
+        </a>
 
-        <NavLink to="/projects" className={getNavClass}>
+        <a href="#skills" className={getNavClass("skills")}>
+          <Typography variant="p1" className="navbar__tab-text">
+            Skills
+          </Typography>
+        </a>
+
+        <a href="#projects" className={getNavClass("projects")}>
           <Typography variant="p1" className="navbar__tab-text">
             Projects
           </Typography>
-        </NavLink>
+        </a>
 
-        <NavLink to="/contact" className={getNavClass}>
+        <a href="#contact" className={getNavClass("contact")}>
           <Typography variant="p1" className="navbar__tab-text">
             Contact
           </Typography>
-        </NavLink>
+        </a>
 
         <ThemeToggle />
       </div>

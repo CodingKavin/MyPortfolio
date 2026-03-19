@@ -23,6 +23,7 @@ const ProjectsPage = () => {
       ],
       liveLink: "https://spendshifter.com",
       codeLink: "https://github.com/CodingKavin/SpendShifter-client.git",
+      videoLink: "https://www.youtube.com/watch?v=i4ciY37zI_A", // New YouTube link
     },
   ];
 
@@ -53,30 +54,43 @@ const ProjectsPage = () => {
                   <Tags key={tech} text={tech} />
                 ))}
               </div>
-              <div className="project-card__btn-container">
-                <div className="project-card__btn-container">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-card__external-link"
-                  >
-                    <Button variant="primary" className="project-card__btn">
-                      <Typography variant="p2">Live Demo</Typography>
-                    </Button>
-                  </a>
 
-                  <a
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-card__external-link"
-                  >
-                    <Button variant="secondary" className="project-card__btn">
-                      <Typography variant="p2">View Code</Typography>
-                    </Button>
-                  </a>
-                </div>
+              <div className="project-card__btn-container">
+                {/* 1. Demo (YouTube) */}
+                <a
+                  href={project.videoLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-card__external-link"
+                >
+                  <Button variant="primary" className="project-card__btn">
+                    <Typography variant="p2">Demo</Typography>
+                  </Button>
+                </a>
+
+                {/* 2. Live App */}
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-card__external-link"
+                >
+                  <Button variant="secondary" className="project-card__btn">
+                    <Typography variant="p2">Live App</Typography>
+                  </Button>
+                </a>
+
+                {/* 3. Code */}
+                <a
+                  href={project.codeLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-card__external-link"
+                >
+                  <Button variant="secondary" className="project-card__btn">
+                    <Typography variant="p2">Code</Typography>
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

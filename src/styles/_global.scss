@@ -1,6 +1,11 @@
 @use "./fonts" as *;
 @use "./variables" as *;
 @use "./functions" as *;
+@use "./mixins" as *;
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: $font-family-primary;
@@ -8,4 +13,19 @@ body {
   background-color: $color-background-dark;
   margin: 0;
   box-sizing: border-box;
+}
+
+.about-me__content,
+.skills__container,
+.projects__container,
+.contact__container {
+  width: 80%;
+  max-width: pxToRem(1000);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+
+  @include tablet {
+    width: 100%;
+  }
 }
