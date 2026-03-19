@@ -3,17 +3,20 @@
 @use "../../styles/mixins" as *;
 
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: pxToRem(8) pxToRem(16);
+  margin: 0 pxToRem(16);
   padding: pxToRem(8) pxToRem(8);
   border-bottom: 1px solid $color-text-secondary;
+  background-color: $color-background-dark;
 
   @include tablet {
-    position: static;
-    margin: pxToRem(16) pxToRem(32);
+    position: sticky;
+    margin: 0 pxToRem(32);
     padding: pxToRem(16) pxToRem(16);
   }
 
