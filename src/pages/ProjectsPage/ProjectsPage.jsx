@@ -23,7 +23,7 @@ const ProjectsPage = () => {
       ],
       liveLink: "https://spendshifter.com",
       codeLink: "https://github.com/CodingKavin/SpendShifter-client.git",
-      videoLink: "https://www.youtube.com/watch?v=i4ciY37zI_A", // New YouTube link
+      videoLink: "https://www.youtube.com/watch?v=i4ciY37zI_A",
     },
   ];
 
