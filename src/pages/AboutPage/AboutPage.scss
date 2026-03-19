@@ -7,11 +7,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; // Ensures section fills screen for better observer tracking
+  min-height: 100vh;
+  padding: pxToRem(40) 0;
 
   @include tablet {
     margin: pxToRem(16) pxToRem(32);
     padding: pxToRem(16) pxToRem(16);
+  }
+
+  &__header {
+    color: $color-text-primary;
+    text-align: center;
+    margin-bottom: pxToRem(24);
   }
 
   &__content {
@@ -24,6 +31,7 @@
     margin: pxToRem(8) pxToRem(16);
     padding: pxToRem(24) pxToRem(24);
     max-width: pxToRem(1000);
+    width: calc(100% - #{pxToRem(32)});
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -37,6 +45,13 @@
       flex-direction: row;
       gap: pxToRem(32);
       align-items: center;
+    }
+
+    &--column {
+      align-items: flex-start;
+      @include tablet {
+        flex-direction: column;
+      }
     }
   }
 
@@ -52,21 +67,6 @@
     object-fit: cover;
   }
 
-  &__header {
-    color: $color-text-primary;
-    text-align: center;
-    margin-bottom: pxToRem(24);
-  }
-
-  &__download-link {
-    text-decoration: none;
-    display: inline-block;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
   &__btn-container {
     display: flex;
     justify-content: flex-start;
@@ -79,6 +79,68 @@
     .typography--p2 {
       margin-top: 0;
       margin-bottom: 0;
+    }
+  }
+
+  &__download-link {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16);
+    margin-top: pxToRem(16);
+    width: 100%;
+    max-width: pxToRem(1000);
+
+    @include tablet {
+      flex-direction: row;
+      align-items: stretch;
+      margin: pxToRem(16) pxToRem(16) 0;
+
+      .about-me__content {
+        margin: 0;
+        flex: 1;
+      }
+    }
+  }
+
+  &__column {
+    width: 100%;
+  }
+
+  &__sub-header {
+    color: $color-text-primary;
+    text-transform: uppercase;
+    font-size: pxToRem(14);
+    letter-spacing: 2px;
+    margin-bottom: pxToRem(20);
+    border-bottom: 1px solid rgba($color-text-secondary, 0.3);
+    padding-bottom: pxToRem(8);
+  }
+
+  &__item {
+    margin-bottom: pxToRem(24);
+
+    &-title {
+      font-weight: 700;
+      color: $color-text-primary;
+      margin-bottom: pxToRem(4);
+    }
+
+    &-meta {
+      color: $color-text-secondary;
+      font-style: italic;
+      margin-bottom: pxToRem(8);
+      font-size: pxToRem(14);
+    }
+
+    &-desc {
+      color: $color-text-primary;
+      line-height: 1.5;
+      opacity: 0.9;
     }
   }
 }
