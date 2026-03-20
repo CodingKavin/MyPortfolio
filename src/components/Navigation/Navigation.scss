@@ -13,7 +13,7 @@
   padding: pxToRem(8) pxToRem(8);
   border-bottom: 1px solid $color-text-secondary;
   background-color: $color-background-dark;
-  max-width: pxToRem(1000);
+  max-width: pxToRem(1200);
 
   @include tablet {
     position: sticky;
