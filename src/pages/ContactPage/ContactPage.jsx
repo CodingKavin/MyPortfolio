@@ -1,6 +1,6 @@
 import Typography from "../../components/Typography/Typography";
 import Button from "../../components/Button/Button";
-import MyResume from "../../assets/documents/Resume - Kavin Paul.pdf";
+import MyResume from "../../assets/documents/Resume_Software_Engineer_Kavin_Paul.pdf";
 import Icon from "../../components/Iconography/Iconography.jsx";
 import { useState } from "react";
 import "./ContactPage.scss";
@@ -85,7 +85,7 @@ const ContactPage = () => {
           </Typography>
           <a
             href={MyResume}
-            download="Kavin_Paul_Resume.pdf"
+            download="Resume_Software_Engineer_Kavin_Paul.pdf"
             className="contact__download-link"
           >
             <Button variant="primary" className="contact__btn">
