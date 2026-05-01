@@ -1,7 +1,7 @@
 import MyPic from "../../assets/Images/pic_kavin.jpg";
 import Typography from "../../components/Typography/Typography";
 import Button from "../../components/Button/Button";
-import MyResume from "../../assets/documents/Resume - Kavin Paul.pdf";
+import MyResume from "../../assets/documents/Resume_Software_Engineer_Kavin_Paul.pdf";
 import "./AboutPage.scss";
 
 const AboutPage = () => {
