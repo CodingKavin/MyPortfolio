@@ -9,10 +9,22 @@ const SkillsPage = () => {
       list: [
         "React.js",
         "Node.js",
+        "TypeScript",
+        "Tailwind CSS",
         "Express.js",
         "JavaScript (ES6+)",
         "MySQL",
         "Supabase",
+      ],
+    },
+    {
+      category: "AI Orchestration & Modern Engineering",
+      list: [
+        "AI-Collaborative Dev",
+        "Environment Sandboxing",
+        "Prompt Engineering",
+        "Claude/LLM Integration",
+        "Automated Unit Testing",
       ],
     },
     {

@@ -1,5 +1,6 @@
 import ProjectImg from "../../assets/Images/SpendShifter_devices.png";
 import AigisImg from "../../assets/Images/AIgis_Wes_Pic.png";
+import AtmoSentryImg from "../../assets/Images/AtmoSentry_Mockup.png";
 import Typography from "../../components/Typography/Typography";
 import Button from "../../components/Button/Button";
 import Tags from "../../components/Tags/Tags";
@@ -28,14 +29,22 @@ const ProjectsPage = () => {
       img: ProjectImg,
     },
     {
-      title: "AIgis (AI Credit Card Fraud Detection)",
+      title: "AtmoSentry (AI-Orchestrated Weather & Air Quality Checker)",
       description:
-        "Developed during a high-intensity 4-day hackathon, this MVP leverages PCA-transformed data and a Random Forest algorithm to detect credit card fraud. Collaborating with UX design and Data Science teams we architected the analyst dashboard, enabling financial institutions to set automated thresholds for auto-approvals and auto-blocks, while flagging medium-probability transactions for manual review.",
-      techStack: ["React.js", "JavaScript", "Node.js", "Express.js", "SQL"],
-      liveLink: null,
-      codeLink: "https://github.com/CodingKavin",
+        "Designed and deployed a high-performance weather and air quality tracking platform in under 24 hours. To ensure security, the entire project was developed within a Dockerized WSL2 sandbox, isolating AI-generated code. Features custom skeleton loaders for optimized perceived performance and automated CI/CD integrity checks.",
+      techStack: [
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Docker",
+        "GitHub Actions",
+        "Vitest",
+        "AI Orchestration",
+      ],
+      liveLink: "https://atmosentry.com",
+      codeLink: "https://github.com/CodingKavin/atmosentry.git",
       videoLink: null,
-      img: AigisImg,
+      img: AtmoSentryImg,
     },
   ];
 
