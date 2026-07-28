@@ -67,8 +67,8 @@ const AboutPage = () => {
               Process Automation, I have built my career on precision and
               problem-solving. I am a fast learner with an innate curiosity for
               how things work under the hood. I specialize in building clean,
-              functional applications and am currently diving into the Java,
-              Spring Boot, and AWS ecosystem.
+              functional applications and am currently diving into the AWS
+              ecosystem.
             </Typography>
             <div className="about-me__btn-container">
               <Button
