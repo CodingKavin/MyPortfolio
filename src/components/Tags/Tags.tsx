@@ -1,7 +1,12 @@
+import type { HTMLAttributes } from "react";
 import Typography from "../Typography/Typography";
 import "./Tags.scss";
 
-const Tags = ({ text = "", className = "", ...props }) => {
+interface TagsProps extends HTMLAttributes<HTMLDivElement> {
+  text?: string;
+}
+
+const Tags = ({ text = "", className = "", ...props }: TagsProps) => {
   let combinedClassName = `tag tag--skill`;
   if (className) combinedClassName += ` ${className}`;
 

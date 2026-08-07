@@ -1,10 +1,10 @@
 import { ThemeProvider } from "./context/ThemeProvider";
 import Navigation from "./components/Navigation/Navigation";
-import Footer from "./components/Footer/Footer.jsx";
-import AboutPage from "./pages/AboutPage/AboutPage.jsx";
-import ContactPage from "./pages/ContactPage/ContactPage.jsx";
-import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx";
-import SkillsPage from "./pages/SkillsPage/SkillsPage.jsx";
+import Footer from "./components/Footer/Footer";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import SkillsPage from "./pages/SkillsPage/SkillsPage";
 
 function App() {
   return (

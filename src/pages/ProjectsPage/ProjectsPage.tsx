@@ -1,5 +1,4 @@
 import ProjectImg from "../../assets/Images/SpendShifter_devices.png";
-import AigisImg from "../../assets/Images/AIgis_Wes_Pic.png";
 import AtmoSentryImg from "../../assets/Images/AtmoSentry_Mockup.png";
 import Typography from "../../components/Typography/Typography";
 import Button from "../../components/Button/Button";

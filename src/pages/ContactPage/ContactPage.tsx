@@ -1,14 +1,14 @@
 import Typography from "../../components/Typography/Typography";
 import Button from "../../components/Button/Button";
 import MyResume from "../../assets/documents/Resume_Software_Engineer_Kavin_Paul.pdf";
-import Icon from "../../components/Iconography/Iconography.jsx";
+import Icon from "../../components/Iconography/Iconography";
 import { useState } from "react";
 import "./ContactPage.scss";
 
 const ContactPage = () => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = (text) => {
+  const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

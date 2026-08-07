@@ -5,7 +5,7 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <footer className="footer">
-      <Typography variant="p" className="footer__copy">
+      <Typography variant="p3" className="footer__copy">
         &copy; Made by Kavin Paul.
       </Typography>
       <div className="footer__socials">
