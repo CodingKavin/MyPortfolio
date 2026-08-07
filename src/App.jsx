@@ -1,5 +1,5 @@
-import { ThemeProvider } from "./context/ThemeContext.jsx";
-import Navigation from "./components/Navigation/Navigation.jsx";
+import { ThemeProvider } from "./context/ThemeProvider";
+import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer.jsx";
 import AboutPage from "./pages/AboutPage/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage/ContactPage.jsx";

@@ -1,4 +1,4 @@
-import Typography from "../Typography/Typography.jsx";
+import Typography from "../Typography/Typography";
 import "./Tags.scss";
 
 const Tags = ({ text = "", className = "", ...props }) => {

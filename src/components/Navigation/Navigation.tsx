@@ -1,27 +1,72 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "../../context/ThemeContext.jsx";
-import Typography from "../Typography/Typography.jsx";
+import { useTheme } from "../../context/ThemeContext";
+import Typography from "../Typography/Typography";
 import Icon from "../Iconography/Iconography";
+import type { SectionId } from "../../types";
 import "./Navigation.scss";
+
+const SECTION_IDS: SectionId[] = ["about", "skills", "projects", "contact"];
+
+const isSectionId = (id: string): id is SectionId =>
+  (SECTION_IDS as string[]).includes(id);
+
+const SocialLinks = () => (
+  <div className="navbar__socials">
+    <a
+      href="https://github.com/CodingKavin"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="navbar__social-link"
+    >
+      <Icon name="github" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/kavin-paul-dev/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="navbar__social-link"
+    >
+      <Icon name="linkedin" />
+    </a>
+  </div>
+);
+
+interface ThemeToggleProps {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
+const ThemeToggle = ({ isDarkMode, toggleTheme }: ThemeToggleProps) => (
+  <div
+    className={`navbar__toggle ${isDarkMode ? "" : "navbar__toggle--light"}`}
+    onClick={toggleTheme}
+  >
+    <span className="navbar__toggle-icon">🌙</span>
+    <div className="navbar__toggle-pill">
+      <div className="navbar__toggle-circle"></div>
+    </div>
+    <span className="navbar__toggle-icon">☀️</span>
+  </div>
+);
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState<SectionId>("about");
   const { isDarkMode, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    const observerOptions = {
+    const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: "-30% 0px -60% 0px",
       threshold: 0,
     };
 
-    const observerCallback = (entries) => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && isSectionId(entry.target.id)) {
           setActiveSection(entry.target.id);
         }
       });
@@ -32,8 +77,7 @@ const Navigation = () => {
       observerOptions,
     );
 
-    const sections = ["about", "skills", "projects", "contact"];
-    sections.forEach((id) => {
+    SECTION_IDS.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
     });
@@ -41,42 +85,8 @@ const Navigation = () => {
     return () => observer.disconnect();
   }, []);
 
-  const getNavClass = (id) =>
+  const getNavClass = (id: SectionId) =>
     `navbar__tab ${activeSection === id ? "navbar__tab--active" : ""}`;
-
-  const SocialLinks = () => (
-    <div className="navbar__socials">
-      <a
-        href="https://github.com/CodingKavin"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="navbar__social-link"
-      >
-        <Icon name="github" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/kavin-paul-dev/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="navbar__social-link"
-      >
-        <Icon name="linkedin" />
-      </a>
-    </div>
-  );
-
-  const ThemeToggle = () => (
-    <div
-      className={`navbar__toggle ${isDarkMode ? "" : "navbar__toggle--light"}`}
-      onClick={toggleTheme}
-    >
-      <span className="navbar__toggle-icon">🌙</span>
-      <div className="navbar__toggle-pill">
-        <div className="navbar__toggle-circle"></div>
-      </div>
-      <span className="navbar__toggle-icon">☀️</span>
-    </div>
-  );
 
   return (
     <nav className="navbar">
@@ -93,7 +103,7 @@ const Navigation = () => {
       </div>
 
       <div className="navbar__right--mobile">
-        <ThemeToggle />
+        <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         <button
           className={`navbar__hamburger ${isOpen ? "navbar__hamburger--open" : ""}`}
           onClick={toggleMenu}
@@ -160,7 +170,7 @@ const Navigation = () => {
           </Typography>
         </a>
         <SocialLinks />
-        <ThemeToggle />
+        <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       </div>
     </nav>
   );
