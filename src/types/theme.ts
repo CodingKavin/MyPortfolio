@@ -1,4 +1,6 @@
+export type ThemeId = "terminal" | "blueprint" | "daylight";
+
 export interface ThemeContextValue {
-  isDarkMode: boolean;
-  toggleTheme: () => void;
+  theme: ThemeId;
+  setTheme: (theme: ThemeId) => void;
 }

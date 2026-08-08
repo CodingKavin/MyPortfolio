@@ -1,1 +1,1 @@
-export type SectionId = "about" | "skills" | "projects" | "contact";
+export type SectionId = "about" | "path" | "skills" | "work" | "contact";
