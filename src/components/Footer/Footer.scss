@@ -4,19 +4,24 @@
 
 .footer {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  gap: pxToRem(16);
-  margin: pxToRem(16) auto;
-  padding: pxToRem(24) pxToRem(8);
-  border-top: 1px solid var(--fg-2);
-  max-width: pxToRem(1200);
+  justify-content: space-between;
+  gap: pxToRem(12);
+  margin-top: pxToRem(16);
+  padding: pxToRem(20);
+  border-top: 1px solid var(--line);
+  font-family: var(--label-font), monospace;
+  font-size: pxToRem(11);
+  letter-spacing: 0.08em;
+  color: var(--fg-2);
 
   @include tablet {
-    flex-direction: row;
-    justify-content: space-between;
-    margin: pxToRem(16) auto;
-    padding: pxToRem(24) pxToRem(16);
+    padding: pxToRem(20) pxToRem(32);
+  }
+
+  @include desktop {
+    padding: pxToRem(20) pxToRem(56);
   }
 
   &__copy {
@@ -25,23 +30,32 @@
 
   &__socials {
     display: flex;
-    gap: pxToRem(20);
     align-items: center;
+    gap: pxToRem(6);
   }
 
   &__link {
-    text-decoration: none;
+    width: pxToRem(44);
+    height: pxToRem(44);
     display: flex;
     align-items: center;
-    transition: transform 0.2s ease;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    opacity: 0.82;
+    transition:
+      opacity 0.2s ease,
+      border-color 0.2s ease;
 
     .icon {
-      width: pxToRem(24);
-      height: pxToRem(24);
+      width: pxToRem(18);
+      height: pxToRem(18);
+      fill: var(--fg);
     }
 
     &:hover {
-      transform: translateY(-1px);
+      opacity: 1;
+      border-color: var(--accent);
     }
   }
 }
