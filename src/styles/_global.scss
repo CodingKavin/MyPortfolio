@@ -11,10 +11,12 @@ body {
   font-family: $font-family-primary;
   color: var(--fg-2);
   background-color: var(--bg);
+  background-image: var(--bg-grid);
   margin: 0;
   box-sizing: border-box;
 }
 
+.page-header,
 .about-me__content,
 .skills__container,
 .projects__container,
@@ -28,5 +30,20 @@ body {
 
   @include tablet {
     width: 100%;
+  }
+}
+
+.app-shell {
+  @include desktop {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+main {
+  @include desktop {
+    flex: 1;
+    min-width: 0;
+    padding-top: pxToRem(48);
   }
 }

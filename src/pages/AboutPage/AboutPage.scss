@@ -5,9 +5,6 @@
 .about-me {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   padding: pxToRem(40) 0;
 
   @include tablet {
@@ -15,68 +12,89 @@
     padding: pxToRem(16) pxToRem(16);
   }
 
-  &__header {
-    color: var(--fg);
-    text-align: center;
-    margin-bottom: pxToRem(24);
-  }
-
   &__content {
-    background-color: var(--bg-2);
-    border-radius: pxToRem(32);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: pxToRem(16);
-    margin: pxToRem(8) pxToRem(16);
-    padding: pxToRem(24) pxToRem(24);
-    max-width: pxToRem(1000);
-    width: calc(100% - #{pxToRem(32)});
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
+    align-items: flex-start;
+    gap: pxToRem(40);
 
     @include tablet {
       flex-direction: row;
-      gap: pxToRem(32);
-      align-items: center;
     }
   }
 
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(20);
+    flex: 1.35;
+    min-width: 0;
+  }
+
   &__pic {
-    flex-shrink: 0;
-    max-width: 250px;
+    width: pxToRem(132);
+    height: pxToRem(132);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg-3);
+    flex: none;
   }
 
   &__pic-img {
     width: 100%;
-    height: auto;
-    border-radius: 50%;
+    height: 100%;
     object-fit: cover;
+  }
+
+  &__description {
+    color: var(--fg);
+
+    &--secondary {
+      color: var(--fg-2);
+    }
   }
 
   &__btn-container {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
-    gap: pxToRem(16);
-    margin-top: pxToRem(24);
-  }
-
-  &__btn {
-    .typography--p2 {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+    gap: pxToRem(10);
+    margin-top: pxToRem(4);
   }
 
   &__download-link {
     text-decoration: none;
     display: inline-block;
+  }
+
+  &__facts {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(1);
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    flex: 1;
+    width: 100%;
+  }
+
+  &__fact {
+    background: var(--bg-2);
+    padding: pxToRem(18) pxToRem(20);
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(4);
+  }
+
+  &__fact-value {
+    font-family: var(--num-font), monospace;
+    font-weight: 500;
+    color: var(--fg);
+  }
+
+  &__fact-label {
+    color: var(--fg-2);
   }
 }

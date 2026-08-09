@@ -1,14 +1,28 @@
-import { useState, useEffect } from "react";
-import { useTheme } from "../../context/ThemeContext";
+import { useState } from "react";
+import { useNavigation } from "../../context/NavigationContext";
 import Typography from "../Typography/Typography";
 import Icon from "../Iconography/Iconography";
+import ThemePicker from "../ThemePicker/ThemePicker";
 import type { SectionId } from "../../types";
 import "./Navigation.scss";
 
-const SECTION_IDS: SectionId[] = ["about", "skills", "projects", "contact"];
+const NAV_ITEMS: { id: SectionId; num: string; label: string }[] = [
+  { id: "about", num: "01", label: "About" },
+  { id: "path", num: "02", label: "Path" },
+  { id: "skills", num: "03", label: "Skills" },
+  { id: "work", num: "04", label: "Work" },
+  { id: "contact", num: "05", label: "Contact" },
+];
 
-const isSectionId = (id: string): id is SectionId =>
-  (SECTION_IDS as string[]).includes(id);
+const Wordmark = () => (
+  <div className="navbar__wordmark">
+    <span className="navbar__prompt">~/</span>
+    <span className="navbar__typing-container">
+      <span className="navbar__typing-text">kavin-paul</span>
+      <span className="navbar__cursor">_</span>
+    </span>
+  </div>
+);
 
 const SocialLinks = () => (
   <div className="navbar__socials">
@@ -31,148 +45,96 @@ const SocialLinks = () => (
   </div>
 );
 
-interface ThemeToggleProps {
-  isDarkMode: boolean;
-  toggleTheme: () => void;
-}
-
-const ThemeToggle = ({ isDarkMode, toggleTheme }: ThemeToggleProps) => (
-  <div
-    className={`navbar__toggle ${isDarkMode ? "" : "navbar__toggle--light"}`}
-    onClick={toggleTheme}
-  >
-    <span className="navbar__toggle-icon">🌙</span>
-    <div className="navbar__toggle-pill">
-      <div className="navbar__toggle-circle"></div>
-    </div>
-    <span className="navbar__toggle-icon">☀️</span>
-  </div>
-);
-
 const Navigation = () => {
+  const { activeSection, setActiveSection } = useNavigation();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<SectionId>("about");
-  const { isDarkMode, toggleTheme } = useTheme();
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
-  useEffect(() => {
-    const observerOptions: IntersectionObserverInit = {
-      root: null,
-      rootMargin: "-30% 0px -60% 0px",
-      threshold: 0,
-    };
+  const handleNavigate = (id: SectionId) => {
+    setActiveSection(id);
+    setIsOpen(false);
+  };
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && isSectionId(entry.target.id)) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
-    );
-
-    SECTION_IDS.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const getNavClass = (id: SectionId) =>
+  const getTabClass = (id: SectionId) =>
     `navbar__tab ${activeSection === id ? "navbar__tab--active" : ""}`;
 
-  return (
-    <nav className="navbar">
-      <div className="navbar__left">
-        <a href="#about" className="navbar__logo-link">
-          <Typography variant="h1" className="navbar__left-name">
-            <span className="navbar__prompt">~/</span>
-            <span className="navbar__typing-container">
-              <span className="navbar__typing-text">kavin-paul</span>
-              <span className="navbar__cursor">_</span>
-            </span>
-          </Typography>
-        </a>
-      </div>
+  const renderNavItems = () =>
+    NAV_ITEMS.map((item) => (
+      <button
+        key={item.id}
+        type="button"
+        className={getTabClass(item.id)}
+        aria-current={activeSection === item.id ? "page" : undefined}
+        onClick={() => handleNavigate(item.id)}
+      >
+        <span className="navbar__tab-num">{item.num}</span>
+        <Typography variant="p1" className="navbar__tab-label">
+          {item.label}
+        </Typography>
+      </button>
+    ));
 
-      <div className="navbar__right--mobile">
-        <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-        <button
-          className={`navbar__hamburger ${isOpen ? "navbar__hamburger--open" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar__hamburger-line"></span>
-          <span className="navbar__hamburger-line"></span>
-          <span className="navbar__hamburger-line"></span>
-        </button>
+  return (
+    <>
+      {/* Desktop rail */}
+      <aside className="navbar__rail">
+        <div className="navbar__rail-top">
+          <Wordmark />
+          <Typography variant="p2" className="navbar__tagline">
+            Software Engineer · SDET
+            <br />
+            Toronto, ON
+          </Typography>
+          <SocialLinks />
+        </div>
+
+        <nav className="navbar__rail-nav">{renderNavItems()}</nav>
+
+        <div className="navbar__rail-bottom">
+          <ThemePicker variant="rail" />
+        </div>
+      </aside>
+
+      {/* Mobile header */}
+      <header className="navbar__mobile-header">
+        <div className="navbar__mobile-row">
+          <Wordmark />
+          <div className="navbar__mobile-actions">
+            <SocialLinks />
+            <button
+              type="button"
+              className={`navbar__hamburger ${isOpen ? "navbar__hamburger--open" : ""}`}
+              onClick={toggleMenu}
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar__hamburger-line"></span>
+              <span className="navbar__hamburger-line"></span>
+              <span className="navbar__hamburger-line"></span>
+            </button>
+          </div>
+        </div>
 
         <div
           className={`navbar__mobile-menu ${isOpen ? "navbar__mobile-menu--open" : ""}`}
         >
-          <a href="#about" className={getNavClass("about")} onClick={closeMenu}>
-            <Typography variant="p1">About</Typography>
-          </a>
-          <a
-            href="#skills"
-            className={getNavClass("skills")}
-            onClick={closeMenu}
-          >
-            <Typography variant="p1">Skills</Typography>
-          </a>
-          <a
-            href="#projects"
-            className={getNavClass("projects")}
-            onClick={closeMenu}
-          >
-            <Typography variant="p1">Projects</Typography>
-          </a>
-          <a
-            href="#contact"
-            className={getNavClass("contact")}
-            onClick={closeMenu}
-          >
-            <Typography variant="p1">Contact</Typography>
-          </a>
+          {renderNavItems()}
+          <ThemePicker variant="mobile" />
+        </div>
+      </header>
 
-          <div className="navbar__mobile-socials">
+      {/* Tablet header */}
+      <header className="navbar__tablet-header">
+        <div className="navbar__tablet-row">
+          <Wordmark />
+          <div className="navbar__tablet-actions">
+            <ThemePicker variant="tablet" />
             <SocialLinks />
           </div>
         </div>
-      </div>
-
-      <div className="navbar__right--tablet">
-        <a href="#about" className={getNavClass("about")}>
-          <Typography variant="p1" className="navbar__tab-text">
-            About
-          </Typography>
-        </a>
-        <a href="#skills" className={getNavClass("skills")}>
-          <Typography variant="p1" className="navbar__tab-text">
-            Skills
-          </Typography>
-        </a>
-        <a href="#projects" className={getNavClass("projects")}>
-          <Typography variant="p1" className="navbar__tab-text">
-            Projects
-          </Typography>
-        </a>
-        <a href="#contact" className={getNavClass("contact")}>
-          <Typography variant="p1" className="navbar__tab-text">
-            Contact
-          </Typography>
-        </a>
-        <SocialLinks />
-        <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      </div>
-    </nav>
+        <nav className="navbar__tablet-nav">{renderNavItems()}</nav>
+      </header>
+    </>
   );
 };
 
