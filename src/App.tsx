@@ -2,6 +2,7 @@ import { ThemeProvider } from "./context/ThemeProvider";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import AboutPage from "./pages/AboutPage/AboutPage";
+import PathPage from "./pages/PathPage/PathPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import SkillsPage from "./pages/SkillsPage/SkillsPage";
@@ -14,6 +15,9 @@ function App() {
         <main>
           <section id="about">
             <AboutPage />
+          </section>
+          <section id="path">
+            <PathPage />
           </section>
           <section id="skills">
             <SkillsPage />
