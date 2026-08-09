@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { NavigationContext } from "./NavigationContext";
 import type { SectionId } from "../types";
 
@@ -8,6 +8,10 @@ interface NavigationProviderProps {
 
 export const NavigationProvider = ({ children }: NavigationProviderProps) => {
   const [activeSection, setActiveSection] = useState<SectionId>("about");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeSection]);
 
   return (
     <NavigationContext.Provider value={{ activeSection, setActiveSection }}>

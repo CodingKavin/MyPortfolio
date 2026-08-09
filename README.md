@@ -1,27 +1,44 @@
 # 🚀 Web Development Portfolio | Kavin Paul
 
-A clean, responsive, portfolio designed to showcase my journey as a web developer. This project focuses on high-performance navigation, simple UI.
+A clean, responsive portfolio showcasing my work as a software engineer.
+Built as a single-page app with instant section switching, full TypeScript,
+and three selectable visual themes.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React/ JS with Vite
-- **Styling:** SCSS / CSS
+- **Frontend:** React 19 + TypeScript, built with Vite
+- **Styling:** SCSS, CSS custom properties for theming (no CSS-in-JS)
 
 ## ✨ Key Features
 
-- **Intersection Observer Navigation:** The navbar automatically highlights the current section as you scroll.
-- **Responsive Design:** Optimized for all screen sizes, from mobile to ultra-wide monitors.
-- **Live Project Integration:** Features my latest work **SpendShifter**.
+- **Instant section switching:** Clicking a nav item swaps the visible
+  section immediately - no scrolling, no anchor jumps.
+- **Three selectable themes:** Terminal, Blueprint, and Daylight, each with
+  its own full color palette, chosen via a theme picker and persisted to
+  `localStorage`. All three meet WCAG AA contrast.
+- **Responsive navigation:** a persistent left rail on desktop, a sticky
+  inline-nav header on tablet, and a hamburger dropdown on mobile - all pure
+  CSS breakpoints, no JS resize detection.
+- **Live project integration:** features real, deployed work including
+  **SpendShifter**.
 
 ## 📂 Project Structure
 
 ```text
 src/
-├── components/      # Navbar, Footer
-├── pages/           # About, Projects, Contact
-├── styles/          # SCSS variables, mixins, and global resets
-├── assets/          # Optimized SVGs
-└── utils/           # helpers
+├── components/  # Button, Navigation, Footer, Tags, Typography, PageHeader, ThemePicker, Iconography
+├── pages/       # About, Path, Skills, Work, Contact
+├── context/     # Theme + Navigation state (React Context)
+├── types/       # Shared TypeScript types, barrel-exported
+├── styles/      # SCSS variables (theme tokens), mixins, global resets
+└── assets/      # Fonts, images, resume
 ```
+
+## Commands
+
+- `npm run dev` - start the Vite dev server
+- `npm run build` - production build
+- `npm run preview` - serve the production build locally
+- `npm run lint` - ESLint
