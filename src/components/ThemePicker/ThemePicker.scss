@@ -98,7 +98,7 @@
     .theme-picker__swatch {
       width: pxToRem(16);
       height: pxToRem(16);
-      border-radius: pxToRem(3);
+      border-radius: 3px;
     }
 
     .theme-picker__mark {
@@ -123,7 +123,7 @@
     .theme-picker__swatch {
       width: 100%;
       height: pxToRem(14);
-      border-radius: pxToRem(2);
+      border-radius: 2px;
     }
   }
 }

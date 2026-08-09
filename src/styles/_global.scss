@@ -3,10 +3,6 @@
 @use "./functions" as *;
 @use "./mixins" as *;
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: $font-family-primary;
   color: var(--fg-2);

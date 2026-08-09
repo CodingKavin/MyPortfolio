@@ -12,7 +12,7 @@
     line-height: 1.15;
     display: flex;
     align-items: baseline;
-    gap: 1px;
+    gap: pxToRem(1);
   }
 
   &__prompt {

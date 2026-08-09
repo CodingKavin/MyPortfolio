@@ -1,8 +1,8 @@
+@use "./functions" as *;
+
 $font-family-primary: "Titillium Web", Arial, sans-serif;
 
-$max-width-md: 1045px;
-$max-width-lg: 1440px;
-$nav-rail-width: 300px;
+$nav-rail-width: pxToRem(300);
 
 :root {
   --bg: #0a0f0d;
@@ -18,7 +18,7 @@ $nav-rail-width: 300px;
   --label-tt: none;
   --radius: 2px;
   --wm-font: "JetBrains Mono";
-  --wm-size: 21px;
+  --wm-size: #{pxToRem(21)};
   --bg-grid: none;
 }
 
@@ -36,7 +36,7 @@ $nav-rail-width: 300px;
   --label-tt: uppercase;
   --radius: 0px;
   --wm-font: "JetBrains Mono";
-  --wm-size: 21px;
+  --wm-size: #{pxToRem(21)};
   --bg-grid:
     repeating-linear-gradient(
       0deg,
@@ -64,6 +64,6 @@ $nav-rail-width: 300px;
   --label-tt: none;
   --radius: 10px;
   --wm-font: "JetBrains Mono";
-  --wm-size: 21px;
+  --wm-size: #{pxToRem(21)};
   --bg-grid: none;
 }
