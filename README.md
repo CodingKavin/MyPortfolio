@@ -38,7 +38,7 @@ src/
 
 ## Commands
 
-- `npm run dev` — start the Vite dev server
-- `npm run build` — production build
-- `npm run preview` — serve the production build locally
-- `npm run lint` — ESLint
+- `npm run dev` - start the Vite dev server
+- `npm run build` - production build
+- `npm run preview` - serve the production build locally
+- `npm run lint` - ESLint
