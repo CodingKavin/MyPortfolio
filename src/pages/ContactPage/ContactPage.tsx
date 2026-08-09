@@ -53,7 +53,7 @@ const ContactPage = () => {
       <div className="contact__content">
         <Typography variant="p1" className="contact__intro">
           I'm looking for a software engineering team where precision
-          matters, Toronto or remote. Fastest way to reach me is email.
+          matters. Fastest way to reach me is email.
         </Typography>
 
         <div className="contact__grid">

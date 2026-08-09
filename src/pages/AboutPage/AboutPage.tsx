@@ -20,7 +20,7 @@ const AboutPage = () => {
     <section id="about" className="about-me">
       <PageHeader
         kicker="About"
-        heading="Precision from finance, curiosity from engineering."
+        heading="Precision from finance, insight from engineering."
       />
 
       <div className="about-me__content">
