@@ -7,6 +7,12 @@ const THEME_IDS: ThemeId[] = ["terminal", "blueprint", "daylight"];
 const isThemeId = (value: string): value is ThemeId =>
   (THEME_IDS as string[]).includes(value);
 
+const FAVICONS: Record<ThemeId, string> = {
+  terminal: "/favicon.svg",
+  blueprint: "/favicon-blueprint.svg",
+  daylight: "/favicon-daylight.svg",
+};
+
 interface ThemeProviderProps {
   children: ReactNode;
 }
@@ -20,6 +26,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+
+    const favicon = document.querySelector<HTMLLinkElement>(
+      "link[rel='icon']",
+    );
+    if (favicon) {
+      favicon.href = FAVICONS[theme];
+    }
   }, [theme]);
 
   return (
