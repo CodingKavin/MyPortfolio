@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  border-radius: pxToRem(20);
+  border-radius: var(--radius);
   white-space: nowrap;
 
   transition:
@@ -15,16 +15,28 @@
     background-color 0.2s ease;
 
   &--skill {
-    background-color: var(--accent);
-    color: var(--accent-fg);
+    background-color: var(--bg-3);
+    border: 1px solid var(--line);
+    color: var(--fg);
 
     &:hover {
       transform: translateY(-2px);
     }
   }
 
+  &--stack {
+    border: 1px solid var(--line);
+    color: var(--fg-2);
+
+    .typography--p2 {
+      margin: pxToRem(5) pxToRem(9);
+      font-size: pxToRem(11.5);
+    }
+  }
+
   .typography--p2 {
-    margin: pxToRem(8);
-    font-weight: 600;
+    margin: pxToRem(7) pxToRem(11);
+    font-family: var(--label-font), monospace;
+    font-size: pxToRem(12.5);
   }
 }

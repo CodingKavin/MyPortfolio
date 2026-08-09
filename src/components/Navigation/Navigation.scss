@@ -278,6 +278,10 @@
     }
   }
 
+  .navbar__tab-label {
+    text-transform: var(--label-tt);
+  }
+
   .theme-picker {
     margin-top: pxToRem(12);
   }
@@ -337,5 +341,9 @@
     &--active {
       color: var(--accent);
     }
+  }
+
+  .navbar__tab-label {
+    text-transform: var(--label-tt);
   }
 }

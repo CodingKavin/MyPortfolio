@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import PathPage from "./pages/PathPage/PathPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
-import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import WorkPage from "./pages/WorkPage/WorkPage";
 import SkillsPage from "./pages/SkillsPage/SkillsPage";
 import type { SectionId } from "./types";
 
@@ -15,7 +15,7 @@ const PAGES: Record<SectionId, ComponentType> = {
   about: AboutPage,
   path: PathPage,
   skills: SkillsPage,
-  work: ProjectsPage,
+  work: WorkPage,
   contact: ContactPage,
 };
 

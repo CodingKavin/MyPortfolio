@@ -1,13 +1,20 @@
 import type { HTMLAttributes } from "react";
 import Typography from "../Typography/Typography";
+import type { TagVariant } from "../../types";
 import "./Tags.scss";
 
 interface TagsProps extends HTMLAttributes<HTMLDivElement> {
   text?: string;
+  variant?: TagVariant;
 }
 
-const Tags = ({ text = "", className = "", ...props }: TagsProps) => {
-  let combinedClassName = `tag tag--skill`;
+const Tags = ({
+  text = "",
+  variant = "skill",
+  className = "",
+  ...props
+}: TagsProps) => {
+  let combinedClassName = `tag tag--${variant}`;
   if (className) combinedClassName += ` ${className}`;
 
   return (

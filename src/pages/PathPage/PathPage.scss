@@ -5,7 +5,6 @@
 .path {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: pxToRem(40) 0;
 
   @include tablet {
@@ -13,78 +12,114 @@
     padding: pxToRem(16) pxToRem(16);
   }
 
-  &__header {
-    color: var(--fg);
-    text-align: center;
-    margin-bottom: pxToRem(24);
-  }
-
   &__details {
     display: flex;
     flex-direction: column;
-    gap: pxToRem(16);
+    gap: pxToRem(48);
+  }
+
+  &__experience {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__job {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(8);
+    padding: pxToRem(26) 0;
+    border-top: 1px solid var(--line);
+
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
 
     @include tablet {
       flex-direction: row;
-      align-items: stretch;
+      align-items: flex-start;
+      gap: pxToRem(24);
     }
   }
 
-  &__group {
-    background-color: var(--bg-2);
-    border-radius: pxToRem(32);
+  &__job-dates {
+    font-family: var(--num-font), monospace;
+    padding-top: pxToRem(6);
+    color: var(--fg-2);
+    letter-spacing: 0.02em;
+
+    @include tablet {
+      flex: 0 0 pxToRem(200);
+    }
+  }
+
+  &__job-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: pxToRem(16);
-    padding: pxToRem(24);
-    width: 100%;
+    gap: pxToRem(8);
     flex: 1;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
+    min-width: 0;
   }
 
-  &__group-header {
+  &__job-role {
     color: var(--fg);
-    text-transform: uppercase;
-    font-size: pxToRem(14);
-    letter-spacing: 2px;
-    margin-bottom: pxToRem(4);
-    border-bottom: 1px solid var(--line);
-    padding-bottom: pxToRem(8);
-    width: 100%;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
-  &__item {
-    margin-bottom: pxToRem(24);
+  &__job-org {
+    color: var(--accent);
+    font-weight: 600;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &__job-note {
+    color: var(--fg-2);
+    max-width: 62ch;
+  }
 
-    &-title {
-      font-weight: 700;
-      color: var(--fg);
-      margin-bottom: pxToRem(4);
-    }
+  &__education {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16);
+  }
 
-    &-meta {
-      color: var(--fg-2);
-      font-style: italic;
-      margin-bottom: pxToRem(8);
-      font-size: pxToRem(14);
-    }
+  &__education-label {
+    font-family: var(--label-font), monospace;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
 
-    &-desc {
-      color: var(--fg);
-      line-height: 1.5;
-      opacity: 0.9;
-    }
+  &__education-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: pxToRem(1);
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  &__edu-tile {
+    background: var(--bg-2);
+    padding: pxToRem(20);
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(6);
+    flex: 1 1 pxToRem(240);
+  }
+
+  &__edu-year {
+    font-family: var(--num-font), monospace;
+    color: var(--accent);
+  }
+
+  &__edu-title {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  &__edu-school {
+    color: var(--fg-2);
   }
 }
