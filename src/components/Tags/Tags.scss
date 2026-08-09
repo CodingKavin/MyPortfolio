@@ -15,8 +15,8 @@
     background-color 0.2s ease;
 
   &--skill {
-    background-color: $color-tertiary-medium;
-    color: $color-background-dark-default;
+    background-color: var(--accent);
+    color: var(--accent-fg);
 
     &:hover {
       transform: translateY(-2px);

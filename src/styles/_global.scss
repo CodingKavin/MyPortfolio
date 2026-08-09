@@ -9,8 +9,8 @@ html {
 
 body {
   font-family: $font-family-primary;
-  color: $color-text-secondary;
-  background-color: $color-background-dark;
+  color: var(--fg-2);
+  background-color: var(--bg);
   margin: 0;
   box-sizing: border-box;
 }

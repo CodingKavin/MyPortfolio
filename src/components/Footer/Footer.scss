@@ -9,7 +9,7 @@
   gap: pxToRem(16);
   margin: pxToRem(16) auto;
   padding: pxToRem(24) pxToRem(8);
-  border-top: 1px solid $color-text-secondary;
+  border-top: 1px solid var(--fg-2);
   max-width: pxToRem(1200);
 
   @include tablet {
@@ -20,7 +20,7 @@
   }
 
   &__copy {
-    color: $color-text-secondary;
+    color: var(--fg-2);
   }
 
   &__socials {

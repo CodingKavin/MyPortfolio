@@ -15,8 +15,8 @@
   cursor: pointer;
 
   &--primary {
-    background-color: $color-button-primary;
-    color: $color-text-primary-default;
+    background-color: var(--accent);
+    color: var(--accent-fg);
 
     &:hover {
       opacity: 80%;
@@ -24,15 +24,15 @@
   }
 
   &--secondary {
-    background-color: $color-text-primary-default;
-    color: $color-button-primary;
-    border: 1px solid $color-button-primary;
+    background-color: var(--accent-fg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
 
     &:hover {
-      background: $color-text-primary-default;
+      background: var(--accent-fg);
       box-shadow:
-        0px 0px 0px 1px $color-button-primary inset,
-        0px 0px 0px 1px $color-text-primary-default inset;
+        0px 0px 0px 1px var(--accent) inset,
+        0px 0px 0px 1px var(--accent-fg) inset;
     }
   }
 

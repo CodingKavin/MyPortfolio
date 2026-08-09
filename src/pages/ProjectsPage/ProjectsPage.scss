@@ -14,7 +14,7 @@
   }
 
   &__header {
-    color: $color-text-primary;
+    color: var(--fg);
     text-align: center;
   }
 
@@ -28,7 +28,7 @@
 }
 
 .project-card {
-  background-color: $color-background-light;
+  background-color: var(--bg-2);
   border-radius: pxToRem(32);
   display: flex;
   flex-direction: column;
@@ -68,12 +68,12 @@
   }
 
   &__title {
-    color: $color-text-primary;
+    color: var(--fg);
     margin: 0;
   }
 
   &__description {
-    color: $color-text-secondary;
+    color: var(--fg-2);
   }
 
   &__tags {

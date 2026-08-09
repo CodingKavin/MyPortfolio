@@ -11,8 +11,8 @@
   justify-content: space-between;
   margin: 0 pxToRem(16);
   padding: pxToRem(8) pxToRem(8);
-  border-bottom: 1px solid $color-text-secondary;
-  background-color: $color-background-dark;
+  border-bottom: 1px solid var(--fg-2);
+  background-color: var(--bg);
   max-width: pxToRem(1200);
 
   @include tablet {
@@ -55,7 +55,7 @@
       display: block;
       width: 24px;
       height: 1.5px;
-      background-color: $color-text-primary;
+      background-color: var(--fg);
       transition: 0.3s ease;
     }
 
@@ -79,7 +79,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: $color-background-light;
+    background-color: var(--bg-2);
     padding: 0 pxToRem(16);
     padding-bottom: pxToRem(16);
     border-radius: pxToRem(8);
@@ -100,7 +100,7 @@
       font-weight: 900;
       @include tablet {
         font-weight: 400;
-        border-top: 1px solid $color-text-secondary;
+        border-top: 1px solid var(--fg-2);
       }
     }
     &:hover {
@@ -118,20 +118,20 @@
   }
 
   &__left-name {
-    color: $color-text-secondary;
+    color: var(--fg-2);
     letter-spacing: pxToRem(-1);
     display: flex;
     align-items: center;
   }
 
   &__prompt {
-    color: $color-text-secondary;
+    color: var(--fg-2);
     margin-right: pxToRem(4);
     font-weight: 400;
   }
 
   &__cursor {
-    color: $color-text-secondary;
+    color: var(--fg-2);
     margin-left: pxToRem(2);
     animation: blink 1s step-end infinite;
   }
@@ -163,8 +163,8 @@
       position: relative;
       width: pxToRem(44);
       height: pxToRem(22);
-      background-color: $color-background-light;
-      border: 1px solid $color-text-secondary;
+      background-color: var(--bg-2);
+      border: 1px solid var(--fg-2);
       border-radius: pxToRem(20);
       transition: background-color 0.3s ease;
     }
@@ -175,7 +175,7 @@
       left: 2px;
       width: pxToRem(16);
       height: pxToRem(16);
-      background-color: $color-button-primary;
+      background-color: var(--accent);
       border-radius: 50%;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       transform: translateX(0);
@@ -234,7 +234,7 @@
   .icon {
     width: pxToRem(20);
     height: pxToRem(20);
-    fill: $color-text-primary;
+    fill: var(--fg);
   }
 
   &:hover {

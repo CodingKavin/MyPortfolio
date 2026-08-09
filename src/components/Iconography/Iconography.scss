@@ -7,22 +7,22 @@
   vertical-align: middle;
   width: pxToRem(20);
   height: pxToRem(20);
-  color: $color-text-secondary;
+  color: var(--fg-2);
   transition:
     color 0.3s ease,
     transform 0.3s ease;
 
   &--active {
-    color: $color-link;
+    color: var(--accent);
   }
 
   &--check {
-    color: $color-tertiary-medium;
+    color: var(--accent);
   }
 
   &--copy {
     &:hover {
-      color: $color-link;
+      color: var(--accent);
       transform: scale(1.1);
     }
   }
@@ -32,7 +32,7 @@
     cursor: pointer;
 
     &:hover {
-      color: $color-text-primary;
+      color: var(--fg);
       transform: translateY(-2px);
     }
   }
