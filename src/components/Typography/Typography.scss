@@ -3,6 +3,8 @@
 @use "../../styles/mixins" as *;
 
 .typography {
+  margin: 0;
+
   &--h1 {
     font-size: pxToRem(28);
     line-height: pxToRem(36);

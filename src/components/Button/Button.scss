@@ -4,35 +4,39 @@
 
 .button {
   font-family: $font-family-primary;
+  box-sizing: border-box;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex: none;
   text-decoration: none;
   white-space: nowrap;
-  padding: 8px 16px;
-  border-radius: 8px;
+  min-height: pxToRem(46);
+  padding: pxToRem(13) pxToRem(20);
+  border-radius: var(--radius);
   border: none;
+  font-weight: 600;
   cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
 
   &--primary {
-    background-color: $color-button-primary;
-    color: $color-text-primary-default;
+    background-color: var(--accent);
+    color: var(--accent-fg);
 
     &:hover {
-      opacity: 80%;
+      opacity: 0.88;
     }
   }
 
   &--secondary {
-    background-color: $color-text-primary-default;
-    color: $color-button-primary;
-    border: 1px solid $color-button-primary;
+    background-color: transparent;
+    color: var(--fg);
+    border: 1px solid var(--line);
 
     &:hover {
-      background: $color-text-primary-default;
-      box-shadow:
-        0px 0px 0px 1px $color-button-primary inset,
-        0px 0px 0px 1px $color-text-primary-default inset;
+      border-color: var(--accent);
     }
   }
 
@@ -40,6 +44,5 @@
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
-    box-shadow: none;
   }
 }

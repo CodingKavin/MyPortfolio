@@ -1,37 +1,69 @@
+@use "./functions" as *;
+
 $font-family-primary: "Titillium Web", Arial, sans-serif;
 
-$max-width-md: 1045px;
-$max-width-lg: 1440px;
-
-$color-button-primary: #7f5af0;
-$color-primary-dark: #010101;
-$color-secondary-light: #72757e;
-$color-tertiary-medium: #2cb67d;
-$color-link: var(--link-color);
-$color-link-hover: var(--link-hover);
+$nav-rail-width: pxToRem(300);
 
 :root {
-  --bg-dark: #16161a;
-  --bg-light: #242629;
-  --text-primary: #fffffe;
-  --text-secondary: #b2bcc9;
-  --link-color: #7582ff;
-  --link-hover: #a2adff;
+  --bg: #0a0f0d;
+  --bg-2: #101714;
+  --bg-3: #16201c;
+  --fg: #e7efea;
+  --fg-2: #9fb3a9;
+  --line: #243228;
+  --accent: #4fe0a8;
+  --accent-fg: #06120d;
+  --label-font: "JetBrains Mono";
+  --num-font: "JetBrains Mono";
+  --label-tt: none;
+  --radius: 2px;
+  --wm-font: "JetBrains Mono";
+  --wm-size: #{pxToRem(21)};
+  --bg-grid: none;
 }
 
-[data-theme="light"] {
-  --bg-dark: #eef1f5;
-  --bg-light: #e0e7ff;
-  --text-primary: #16161a;
-  --text-secondary: #000000;
-  --link-color: #4f46e5;
-  --link-hover: #3730a3;
+[data-theme="blueprint"] {
+  --bg: #0a1f2c;
+  --bg-2: #0f2a3a;
+  --bg-3: #143549;
+  --fg: #eaf5fb;
+  --fg-2: #a3c2d4;
+  --line: #1f4a63;
+  --accent: #7fd8ff;
+  --accent-fg: #05202c;
+  --label-font: "JetBrains Mono";
+  --num-font: "JetBrains Mono";
+  --label-tt: uppercase;
+  --radius: 0px;
+  --wm-font: "JetBrains Mono";
+  --wm-size: #{pxToRem(21)};
+  --bg-grid:
+    repeating-linear-gradient(
+      0deg,
+      rgba(127, 216, 255, 0.09) 0 1px,
+      transparent 1px 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(127, 216, 255, 0.09) 0 1px,
+      transparent 1px 32px
+    );
 }
 
-$color-background-dark: var(--bg-dark);
-$color-background-light: var(--bg-light);
-$color-text-primary: var(--text-primary);
-$color-text-secondary: var(--text-secondary);
-
-$color-background-dark-default: #16161a;
-$color-text-primary-default: #fffffe;
+[data-theme="daylight"] {
+  --bg: #faf9f6;
+  --bg-2: #ffffff;
+  --bg-3: #f2f0eb;
+  --fg: #16181a;
+  --fg-2: #565a60;
+  --line: #e1ddd5;
+  --accent: #1f4fbf;
+  --accent-fg: #ffffff;
+  --label-font: "Titillium Web";
+  --num-font: "JetBrains Mono";
+  --label-tt: none;
+  --radius: 10px;
+  --wm-font: "JetBrains Mono";
+  --wm-size: #{pxToRem(21)};
+  --bg-grid: none;
+}

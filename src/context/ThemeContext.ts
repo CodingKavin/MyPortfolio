@@ -1,0 +1,14 @@
+import { createContext, useContext } from "react";
+import type { ThemeContextValue } from "../types";
+
+export const ThemeContext = createContext<ThemeContextValue | undefined>(
+  undefined,
+);
+
+export const useTheme = (): ThemeContextValue => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
+};

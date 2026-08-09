@@ -1,10 +1,12 @@
 import Typography from "../../components/Typography/Typography";
 import Tags from "../../components/Tags/Tags";
+import PageHeader from "../../components/PageHeader/PageHeader";
 import "./SkillsPage.scss";
 
 const SkillsPage = () => {
   const skillGroups = [
     {
+      num: "01",
       category: "Development",
       list: [
         "React.js",
@@ -18,6 +20,7 @@ const SkillsPage = () => {
       ],
     },
     {
+      num: "02",
       category: "AI Orchestration & Modern Engineering",
       list: [
         "AI-Collaborative Dev",
@@ -28,6 +31,7 @@ const SkillsPage = () => {
       ],
     },
     {
+      num: "03",
       category: "Automation & Robotic Process Automation",
       list: [
         "Selenium",
@@ -41,6 +45,7 @@ const SkillsPage = () => {
       ],
     },
     {
+      num: "04",
       category: "Infrastructure",
       list: ["Docker", "Jenkins", "Git", "GitHub Actions", "Cloudflare"],
     },
@@ -48,15 +53,18 @@ const SkillsPage = () => {
 
   return (
     <section id="skills" className="skills">
-      <Typography variant="h1" className="skills__header">
-        Skills
-      </Typography>
+      <PageHeader kicker="Skills" heading="What I build with." />
       <div className="skills__container">
         {skillGroups.map((group) => (
           <div key={group.category} className="skills__group">
-            <Typography variant="h2" className="skills__category-name">
-              {group.category}
-            </Typography>
+            <div className="skills__group-header">
+              <Typography variant="p3" className="skills__group-num">
+                {group.num}
+              </Typography>
+              <Typography variant="p1" className="skills__category-name">
+                {group.category}
+              </Typography>
+            </div>
             <div className="skills__list">
               {group.list.map((skill) => (
                 <Tags key={skill} text={skill} />

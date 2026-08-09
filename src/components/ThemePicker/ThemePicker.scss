@@ -1,0 +1,129 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.theme-picker {
+  &__label {
+    font-family: var(--label-font), monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
+
+  &__options {
+    display: flex;
+  }
+
+  &__option {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: var(--accent);
+    }
+  }
+
+  &__swatch {
+    flex: none;
+    border: 1px solid var(--line);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__option-label {
+    font-weight: 600;
+  }
+
+  &__hint {
+    color: var(--fg-2);
+  }
+
+  &__mark {
+    margin-left: auto;
+    font-family: var(--num-font), monospace;
+    color: var(--accent);
+  }
+
+  &--rail {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(14);
+
+    .theme-picker__options {
+      flex-direction: column;
+      gap: pxToRem(6);
+    }
+
+    .theme-picker__option {
+      gap: pxToRem(10);
+      padding: pxToRem(9) pxToRem(11);
+      background: var(--bg);
+    }
+
+    .theme-picker__swatch {
+      width: pxToRem(22);
+      height: pxToRem(22);
+      border-radius: var(--radius);
+    }
+
+    .theme-picker__text {
+      gap: pxToRem(1);
+    }
+
+    .theme-picker__mark {
+      font-size: pxToRem(11);
+    }
+  }
+
+  &--tablet {
+    .theme-picker__options {
+      gap: pxToRem(8);
+    }
+
+    .theme-picker__option {
+      gap: pxToRem(7);
+      padding: pxToRem(9) pxToRem(12);
+      min-height: pxToRem(44);
+    }
+
+    .theme-picker__swatch {
+      width: pxToRem(16);
+      height: pxToRem(16);
+      border-radius: 3px;
+    }
+
+    .theme-picker__mark {
+      font-size: pxToRem(10);
+    }
+  }
+
+  &--mobile {
+    .theme-picker__options {
+      gap: pxToRem(8);
+    }
+
+    .theme-picker__option {
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      gap: pxToRem(6);
+      min-height: pxToRem(48);
+      padding: pxToRem(8);
+    }
+
+    .theme-picker__swatch {
+      width: 100%;
+      height: pxToRem(14);
+      border-radius: 2px;
+    }
+  }
+}

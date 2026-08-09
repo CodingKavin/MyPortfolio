@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(14);
+  margin-bottom: pxToRem(40);
+
+  &__kicker {
+    font-family: var(--label-font), monospace;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  &__heading {
+    color: var(--fg);
+  }
+
+  &__divider {
+    height: 1px;
+    background: var(--line);
+  }
+}

@@ -1,0 +1,122 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.work {
+  display: flex;
+  flex-direction: column;
+  padding: pxToRem(40) 0;
+
+  @include tablet {
+    margin: pxToRem(16) pxToRem(32);
+    padding: pxToRem(16) pxToRem(16);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(28);
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-2);
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16);
+    padding: pxToRem(32);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: baseline;
+    gap: pxToRem(12);
+  }
+
+  &__name {
+    color: var(--fg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  &__year {
+    font-family: var(--num-font), monospace;
+    color: var(--fg-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__blurb {
+    color: var(--fg-2);
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: pxToRem(7);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: pxToRem(16);
+    margin-top: pxToRem(4);
+  }
+
+  &__link {
+    font-family: $font-family-primary;
+    font-size: pxToRem(14.5);
+    font-weight: 600;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: pxToRem(2);
+    width: fit-content;
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+
+    @include tablet {
+      flex: 1;
+      border-top: none;
+      border-left: 1px solid var(--line);
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    max-height: pxToRem(320);
+    object-fit: contain;
+    background: var(--bg-2);
+  }
+
+  &__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(6);
+    padding: pxToRem(16) pxToRem(20);
+    border-top: 1px solid var(--line);
+    background: var(--bg-2);
+    flex: 1;
+  }
+
+  &__highlight {
+    color: var(--fg-2);
+  }
+}

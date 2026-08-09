@@ -1,6 +1,8 @@
+import type { ReactNode, SVGAttributes } from "react";
+import type { IconName } from "../../types";
 import "./Iconography.scss";
 
-const iconPaths = {
+const iconPaths: Record<IconName, ReactNode> = {
   copy: (
     <path
       d="M9 9h13v13H9V9zm-4 6H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
@@ -29,7 +31,12 @@ const iconPaths = {
   ),
 };
 
-const Icon = ({ name, className = "", isActive = false, ...props }) => {
+interface IconProps extends SVGAttributes<SVGSVGElement> {
+  name: IconName;
+  isActive?: boolean;
+}
+
+const Icon = ({ name, className = "", isActive = false, ...props }: IconProps) => {
   const icon = iconPaths[name];
 
   if (!icon) return null;

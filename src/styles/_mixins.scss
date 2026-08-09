@@ -7,11 +7,7 @@
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1100px) {
+  @media screen and (min-width: 1024px) {
     @content;
   }
-}
-
-@mixin wrapper($max-width: $max-width-md, $margin: 0 auto, $padding: 0) {
-  max-width: $max-width;
 }
