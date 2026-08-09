@@ -5,109 +5,83 @@
 .contact {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: pxToRem(40) 0;
 
   @include tablet {
     margin: pxToRem(16) pxToRem(32);
     padding: pxToRem(16) pxToRem(16);
   }
 
-  &__header {
-    color: var(--fg);
-    text-align: center;
-  }
-
-  &__container {
-    background-color: var(--bg-2);
-    border-radius: pxToRem(32);
+  &__content {
     display: flex;
     flex-direction: column;
     gap: pxToRem(32);
-    margin: pxToRem(8) pxToRem(16);
-    padding: pxToRem(40);
-    max-width: pxToRem(1000);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
   }
 
-  &__item {
+  &__intro {
+    color: var(--fg);
+    max-width: 46ch;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: pxToRem(1);
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  &__tile {
+    background: var(--bg-2);
+    padding: pxToRem(22);
+    min-height: pxToRem(92);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: pxToRem(12);
-
-    @include tablet {
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-    }
-  }
-
-  &__item-link-wrapper {
-    display: flex;
-    align-items: center;
-    gap: pxToRem(8);
-  }
-
-  &__label {
-    color: var(--fg);
-    text-transform: uppercase;
-    font-size: pxToRem(14);
-    letter-spacing: 1px;
-    margin-bottom: pxToRem(4);
-  }
-
-  &__value {
-    margin-top: 0;
-
-    @include tablet {
-      margin-top: pxToRem(22);
-    }
-  }
-
-  &__link {
+    gap: pxToRem(6);
+    flex: 1 1 pxToRem(260);
     text-decoration: none;
-    color: var(--accent);
+    transition: background-color 0.2s ease;
+
     &:hover {
-      color: var(--fg);
-      opacity: 0.8;
+      background: var(--bg-3);
     }
   }
 
-  &__download-link {
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  &__item-content {
+  &__tile-value-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: pxToRem(12);
+  }
+
+  &__tile-link {
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  &__tile-label {
+    font-family: var(--label-font), monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
+
+  &__tile-value {
+    color: var(--fg);
+    font-weight: 600;
+    word-break: break-all;
   }
 
   &__copy-btn {
-    background: none;
-    border: none;
-    padding: 0;
+    all: unset;
+    box-sizing: border-box;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin-bottom: pxToRem(18);
-
-    @include tablet {
-      margin-bottom: 0;
-      margin-top: pxToRem(4);
-    }
+    flex: none;
 
     .icon {
       width: pxToRem(20);
@@ -118,5 +92,10 @@
     &:hover .icon--copy {
       transform: scale(1.1);
     }
+  }
+
+  &__download-link {
+    text-decoration: none;
+    align-self: flex-start;
   }
 }
