@@ -24,7 +24,8 @@
     border-radius: var(--radius);
     transition: border-color 0.2s ease;
 
-    &:hover {
+    &:hover,
+    &[aria-pressed="true"] {
       border-color: var(--accent);
     }
   }
